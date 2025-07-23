@@ -28,9 +28,14 @@ const app = express();
 
 // Middleware
 
+const allowedOrigins = [
+  'https://werqama-sacco-3guv.vercel.app', // ✅ your Vercel frontend
+  'http://localhost:3000' // ✅ for local development
+];
+
 app.use(cors({
-    origin: 'http://localhost:3000', // frontend origin
-    credentials: true,               // allow cookies/credentials
+  origin: allowedOrigins,
+  credentials: true
 }));
 
 app.use(express.json());
